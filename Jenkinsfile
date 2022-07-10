@@ -1,15 +1,16 @@
 pipeline {
-  agent { label 'linux' }
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
+  agent any
+//   agent { label 'linux' }
+//   options {
+//     buildDiscarder(logRotator(numToKeepStr: '5'))
+//   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('darinpope-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('mgpearce-dockerhub')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t darinpope/dp-alpine:latest .'
+        sh 'docker build -t mgpearce/dp-alpine:latest .'
       }
     }
     stage('Login') {
@@ -19,7 +20,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push darinpope/dp-alpine:latest'
+        sh 'docker push mgpearce/dp-alpine:latest'
       }
     }
   }
