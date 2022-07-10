@@ -21,6 +21,10 @@ pipeline {
     stage('Push') {
       steps {
         sh 'docker push mgpearce/dp-alpine:latest'
+        sh 'whoami'
+        sh 'pwd'
+        sh 'ls -la'
+        input message: 'Finished using the web site? (Click "Proceed" to continue)'
       }
     }
   }
