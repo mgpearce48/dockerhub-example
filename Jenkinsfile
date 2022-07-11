@@ -1,11 +1,7 @@
 pipeline {
   agent any
-//   agent { label 'linux' }
-//   options {
-//     buildDiscarder(logRotator(numToKeepStr: '5'))
-//   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('mgpearce-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub-mgpearce')
   }
   stages {
     stage('Build') {
