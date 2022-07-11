@@ -1,4 +1,4 @@
-FROM alpine:3.13.5
+FROM node:14-alpine as build
 
 WORKDIR /react
 COPY package.json .
